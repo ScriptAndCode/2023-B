@@ -6,16 +6,18 @@ public class MoveUp : MonoBehaviour
 {
 
     public float moveSpeed = 1.0f;
+    public float upperBound = 15;
+    public ScoreManager scoreManager; //  Stores a reference to the scoremanager.
+    public Balloon balloon; // Reference the balloon script to get score.
 
-    public float upperBound = 20;
-
-  //  public Balloon balloon; //Referening the script we made last week?
+    //  public Balloon balloon; //Referening the script we made last week?
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
+        balloon = GetComponent<Balloon>();
     }
 
     // Update is called once per frame
@@ -24,9 +26,10 @@ public class MoveUp : MonoBehaviour
         // Make the Balloon float upward
         transform.Translate(Vector3.up * moveSpeed * Time.deltaTime);
 
-        if(transform.position.y > upperBound)
-
-            Destroy(gameObject);
-
+        if (transform.position.y > upperBound)
+        {
+            scoreManager.DecreaseScoreText(balloon.scoreToGive); // Reduces score for allowing the ballloon to leave the screen.
+            Destroy(gameObject); // Pops the balloon.
+        }
     }
 }
