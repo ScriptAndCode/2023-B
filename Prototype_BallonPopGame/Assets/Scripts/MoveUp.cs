@@ -6,7 +6,7 @@ public class MoveUp : MonoBehaviour
 {
 
     public float moveSpeed = 1.0f;
-    public float upperBound = 15;
+    public float upperBound = 10;
     public ScoreManager scoreManager; //  Stores a reference to the scoremanager.
     public Balloon balloon; // Reference the balloon script to get score.
 

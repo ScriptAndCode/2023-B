@@ -6,7 +6,7 @@ using TMPro;
 public class ScoreManager : MonoBehaviour
 {
 
-    public int score; // This variable is to keep track of the game score.
+    public int score = 0; // This variable is to keep track of the game score.
     public TextMeshProUGUI scoreText;
 
 
@@ -26,7 +26,7 @@ public class ScoreManager : MonoBehaviour
 
     public void DecreaseScoreText(int amount)
     {
-        score += amount;
+        score -= amount;
         UpdateScoreText();
     }
 

@@ -29,8 +29,9 @@ public class Balloon : MonoBehaviour
         // Check to see if clickToPop has reached zero/check to see if the balloon pops:
         if (clickToPop == 0)
         {
+            // Tell the scoremanager to increase the score by a certain amount:
             scoreManager.IncreaseScoreText(scoreToGive);
-            // Tell the scoremanager to increase the score by a certain amount.
+
             Destroy(gameObject); // Destroy and remove popped balloon.
         }
 
