@@ -5,12 +5,7 @@ using UnityEngine;
 public class DestroyOutOfBounds : MonoBehaviour
 {
     public float topBounds = 30.00f;
-    public float lowerBounds = -15.00f;
-
-    void Awake()
-    {
-        //Time.timeScale = 1;
-    }
+    public float lowerBounds = -30.00f;
 
     // Update is called once per frame
     void Update()
@@ -19,7 +14,6 @@ public class DestroyOutOfBounds : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
 
         else if (transform.position.z < lowerBounds)
         {

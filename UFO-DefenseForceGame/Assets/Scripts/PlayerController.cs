@@ -15,22 +15,18 @@ public class PlayerController : MonoBehaviour
     {
         // Set horizontalInput to recieve values from keyboard:
         horizontalInput = Input.GetAxis("Horizontal");
-
         // Moves Player left and right:
         transform.Translate(Vector3.right * horizontalInput * speed * Time.deltaTime);
-
         //  Keep player within bounds, left side:
         if (transform.position.x < -xRange)
         {
             transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
         }
-
         //  Keep player within bounds, right side:
         if (transform.position.x > xRange)
         {
             transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
         }
-
         // If space bar is pressed, fire laserBolt:
         if (Input.GetKeyDown(KeyCode.Space))
         {

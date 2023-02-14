@@ -370,7 +370,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 808468203}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 20}
+  m_LocalPosition: {x: 0, y: 2, z: 19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -391,7 +391,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pickupItem: {fileID: 2442144957936465062, guid: 3d47b78a949994b2eb986642cb70a0d4, type: 3}
   xSpawnRange: 20
-  zSpawnPos: 20
+  zSpawnPos: 19
   ySpawnPos: 2
   spawnInterval: 1
   startDelay: 0.5
