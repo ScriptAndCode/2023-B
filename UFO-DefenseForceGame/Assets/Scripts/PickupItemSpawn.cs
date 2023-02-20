@@ -6,7 +6,7 @@ public class PickupItemSpawn : MonoBehaviour
 {
     public GameObject pickupItem;
     public float xSpawnRange = 20.0f;
-    public float zSpawnPos = 20;
+    public float zSpawnPos = 21;
     public float spawnInterval = 1.0f;
     public float startDelay = 0.5f;
 

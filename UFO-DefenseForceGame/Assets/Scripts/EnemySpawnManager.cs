@@ -8,14 +8,12 @@ public class EnemySpawnManager : MonoBehaviour
     public GameObject[] enemyPrefabs;
 
     // [SerializeField]
-    //  private float spawnRangeX = 17.0f;
-
+    private float spawnRangeX = 17.0f;
     // [SerializedField]
-    private float spawnPosZ;
+    private float spawnPosZ = 21.0f;
 
-    private float startDelay = 2.0f;
-    private float spawnInterval = 2.0f;
-
+    private float startDelay = 2f;
+    private float spawnInterval = 2f;
 
     // Start is called before the first frame update
     void Start()
@@ -23,12 +21,13 @@ public class EnemySpawnManager : MonoBehaviour
         InvokeRepeating("SpawnRandomEnemy", startDelay, spawnInterval);
     }
 
-    // Update is called once per frame
-    /*
-     void SpawnRandomEnemy()
-     {
-         Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
-         int enemyIndex = NonRandomizedStringEqualityComparer.Range(0,)
-     }
-     */
+    void SpawnRandomEnemy()
+    {
+        // Generate a position to spawn at:
+        Vector3 spawnPos = new Vector3(Random.Range(-spawnRangeX, spawnRangeX), 0, spawnPosZ);
+        // Pick a random enemy/ufo from the array
+        int enemyIndex = Random.Range(0, enemyPrefabs.Length);// Randomly picking a ufo from the array.
+        // Spawn ufos, using the enemyIndex variable to specify which one:
+        Instantiate(enemyPrefabs[enemyIndex], spawnPos, enemyPrefabs[enemyIndex].transform.rotation);
+    }
 }
