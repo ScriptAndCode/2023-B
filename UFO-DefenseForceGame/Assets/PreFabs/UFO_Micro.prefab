@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2308635249833844782}
   - component: {fileID: 2308635249833844787}
   - component: {fileID: 2308635249833844780}
-  - component: {fileID: 2308635249833844781}
   m_Layer: 0
   m_Name: Dome
   m_TagString: Untagged
@@ -84,19 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &2308635249833844781
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2308635249833844783}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2308635249915031853
 GameObject:
   m_ObjectHideFlags: 0
@@ -115,7 +101,7 @@ GameObject:
   - component: {fileID: 6208362496059616745}
   m_Layer: 0
   m_Name: UFO_Micro
-  m_TagString: Untagged
+  m_TagString: EnemyUFO
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -240,8 +226,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b77be70e19a9945c7b219d32f538af7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topBounds: 30
-  lowerBounds: -30
+  topBounds: 22
+  lowerBounds: -17
+  scoreManager: {fileID: 0}
 --- !u!114 &6208362496059616745
 MonoBehaviour:
   m_ObjectHideFlags: 0

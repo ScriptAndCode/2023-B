@@ -5,8 +5,16 @@ using UnityEngine;
 public class DestroyOutOfBounds : MonoBehaviour
 {
     public float topBounds = 22.00f;
-    public float lowerBounds = -22.00f;
+    public float lowerBounds = -17.00f;
 
+    public ScoreManager scoreManager; // Reference the score manager so that the score can be updated.
+    private DetectCollision detectCollision;
+
+    void Start()
+    {
+        scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>(); // Getting the component ScoreManager script.
+        detectCollision = GameObject.Find("DetectCollision").GetComponent<DetectCollision>(); // Getting the component DetectCollisions.
+    }
     void Awake()
     {
         Time.timeScale = 1;
@@ -20,9 +28,14 @@ public class DestroyOutOfBounds : MonoBehaviour
 
         else if (transform.position.z < lowerBounds)
         {
-            Debug.Log("Game Over");
+            //Everytime a ship sneeks past the lower bounds deduct points:
+            if (gameObject.CompareTag("EnemyUFO"))
+            {
+                scoreManager.DecreaseScore(scoreManager.amount); // DecreaseScore is a funtion in the DetectCollision script.
+            }
+            //Debug.Log("Game Over");
             Destroy(gameObject);
-            Time.timeScale = 0;
+            // Time.timeScale = 0;
         }
     }
 }

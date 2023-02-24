@@ -5,7 +5,9 @@ using TMPro;
 
 public class ScoreManager : MonoBehaviour
 {
-    public int score; // Store the score value.
+    public int score = 0; // Store the score value.
+    public int amount = 1;
+
     public TextMeshProUGUI scoreText; //Reference the text UI element to change.
 
     public void IncreaseScore(int amount)

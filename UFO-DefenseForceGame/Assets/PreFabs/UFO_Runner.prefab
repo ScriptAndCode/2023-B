@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8572782999231349591}
   - component: {fileID: 8572782999231349586}
   - component: {fileID: 8572782999231349589}
-  - component: {fileID: 8572782999231349588}
   m_Layer: 0
   m_Name: Dome
   m_TagString: Untagged
@@ -84,19 +83,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!135 &8572782999231349588
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8572782999231349590}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8572783000812364129
 GameObject:
   m_ObjectHideFlags: 0
@@ -108,14 +94,14 @@ GameObject:
   - component: {fileID: 8572783000812364136}
   - component: {fileID: 8572783000812364139}
   - component: {fileID: 8572783000812364138}
+  - component: {fileID: 8202474684926707777}
   - component: {fileID: 8572783000812364142}
   - component: {fileID: 8572783000812364140}
   - component: {fileID: 8572783000812364143}
   - component: {fileID: -1885510526670269192}
-  - component: {fileID: 8202474684926707777}
   m_Layer: 0
   m_Name: UFO_Runner
-  m_TagString: Untagged
+  m_TagString: EnemyUFO
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -186,6 +172,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!135 &8202474684926707777
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8572783000812364129}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!54 &8572783000812364142
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -227,8 +226,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b77be70e19a9945c7b219d32f538af7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topBounds: 30
-  lowerBounds: -30
+  topBounds: 22
+  lowerBounds: -17
+  scoreManager: {fileID: 0}
 --- !u!114 &-1885510526670269192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,16 +241,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc79bf43ed31f41f3818464b515d2224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!135 &8202474684926707777
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8572783000812364129}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.5
-  m_Center: {x: 0, y: 0, z: 0}

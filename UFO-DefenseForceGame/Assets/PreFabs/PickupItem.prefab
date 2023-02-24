@@ -128,8 +128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b77be70e19a9945c7b219d32f538af7f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topBounds: 30
-  lowerBounds: -30
+  topBounds: 22
+  lowerBounds: -17
+  scoreManager: {fileID: 0}
 --- !u!114 &6600181670481956548
 MonoBehaviour:
   m_ObjectHideFlags: 0

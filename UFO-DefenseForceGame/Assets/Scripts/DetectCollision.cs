@@ -5,21 +5,28 @@ using UnityEngine;
 // This script is applied to the enemy UFOs. Destroys them when they are hit by the laser bolt.
 public class DetectCollision : MonoBehaviour
 {
-    // Start is called before the first frame update
+    private ScoreManager scoreManager;
+    // public int scoreToGive = 1;
+    //public ParticleSystem explosionParticle;
+
     void Start()
     {
-        //scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>(); // Referencing scoreManger script?
+        scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>(); // Referencing scoreManger script?
     }
 
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.CompareTag("LaserBolt"))
         {
-            Destroy(gameObject); // Destroys this game object (one of the UFOs) when when a laser bolt hits it.
-            Destroy(other.gameObject); // Destroys the object it collides with (the blaster bolt)
+            Destroy(gameObject); // Destroys the UFO.
+            Destroy(other.gameObject); // Destroys the laser bolt.
         }
         //Explosion();
-        //ScoreManager.IncreaseScore(scoreToGive); //Increase score
+        scoreManager.IncreaseScore(scoreManager.amount); //Increase score.
     }
-    // VoidExplosion()
+    /* VoidExplosion()
+    {
+        Instantiate(explosionParticle, transform.position, transform.rotation);
+    }
+    */
 }

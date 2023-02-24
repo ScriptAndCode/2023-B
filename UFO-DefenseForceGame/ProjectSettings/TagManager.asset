@@ -6,6 +6,7 @@ TagManager:
   tags:
   - LaserBolt
   - PickupItem
+  - EnemyUFO
   layers:
   - Default
   - TransparentFX
