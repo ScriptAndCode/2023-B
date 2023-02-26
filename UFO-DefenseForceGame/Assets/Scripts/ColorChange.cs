@@ -24,3 +24,4 @@ public class ColorChange : MonoBehaviour
         rend.material.color = Color.Lerp(colorStart, colorEnd, lerp);
     }
 }
+// Script from: https://docs.unity3d.com/ScriptReference/Material-color.html
