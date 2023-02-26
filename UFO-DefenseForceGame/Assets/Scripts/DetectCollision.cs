@@ -6,7 +6,7 @@ using UnityEngine;
 public class DetectCollision : MonoBehaviour
 {
     private ScoreManager scoreManager;
-    // public int scoreToGive = 1;
+    public int scoreToGive = 1;
     //public ParticleSystem explosionParticle;
 
     void Start()
@@ -22,7 +22,7 @@ public class DetectCollision : MonoBehaviour
             Destroy(other.gameObject); // Destroys the laser bolt.
         }
         //Explosion();
-        scoreManager.IncreaseScore(scoreManager.amount); //Increase score.
+        scoreManager.IncreaseScore(scoreToGive); //Increase score.
     }
     /* VoidExplosion()
     {
