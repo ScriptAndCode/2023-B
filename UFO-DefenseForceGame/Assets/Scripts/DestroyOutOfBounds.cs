@@ -32,10 +32,12 @@ public class DestroyOutOfBounds : MonoBehaviour
             if (gameObject.CompareTag("EnemyUFO"))
             {
                 scoreManager.DecreaseScore(scoreManager.amount); // DecreaseScore is a funtion in the DetectCollision script.
+                Debug.Log("Game Over");
+                Destroy(gameObject);
+                Time.timeScale = 0;
             }
-            //Debug.Log("Game Over");
+
             Destroy(gameObject);
-            // Time.timeScale = 0;
         }
     }
 }
