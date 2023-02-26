@@ -227,8 +227,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   topBounds: 22
-  lowerBounds: -17
+  lowerBounds: -20
   scoreManager: {fileID: 0}
+  detectCollision: {fileID: 0}
 --- !u!114 &6208362496059616745
 MonoBehaviour:
   m_ObjectHideFlags: 0

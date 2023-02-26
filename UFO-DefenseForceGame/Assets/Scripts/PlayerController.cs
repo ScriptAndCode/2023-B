@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public float xRange = 25.00f;
     public Transform blaster;
     public GameObject laserBolt;
+    public int numbOfPickup = 0;
 
     // Update is called once per frame
     void Update()
@@ -37,8 +38,14 @@ public class PlayerController : MonoBehaviour
 
     // Delete any object with a trigger that hits the player:
 
-    private void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other)
     {
+        // count number of pickup items collected:
+        if (other.gameObject.CompareTag("PickupItem"))
+        {
+            numbOfPickup += 1;
+            Debug.Log("Number of collectables: " + numbOfPickup);
+        }
         Destroy(other.gameObject);
     }
 }

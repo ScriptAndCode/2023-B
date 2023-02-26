@@ -674,7 +674,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc79bf43ed31f41f3818464b515d2224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreToGive: 0
 --- !u!1 &963194225
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,3 +978,4 @@ MonoBehaviour:
   xRange: 25
   blaster: {fileID: 739989260}
   laserBolt: {fileID: 4233690466358672808, guid: 2d2b283ad34cc488fb03d51aa4f701a2, type: 3}
+  numbOfPickup: 0

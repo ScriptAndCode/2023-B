@@ -5,10 +5,10 @@ using UnityEngine;
 public class DestroyOutOfBounds : MonoBehaviour
 {
     public float topBounds = 22.00f;
-    public float lowerBounds = -17.00f;
+    public float lowerBounds = -20.00f;
 
     public ScoreManager scoreManager; // Reference the score manager so that the score can be updated.
-    private DetectCollision detectCollision;
+    public DetectCollision detectCollision;
 
     void Start()
     {
