@@ -9,16 +9,22 @@ public class DestroyOutOfBounds : MonoBehaviour
 
     public ScoreManager scoreManager; // Reference the score manager so that the score can be updated.
     public DetectCollision detectCollision;
+    public GameManager gameManager;
 
     void Start()
     {
         scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>(); // Getting the component ScoreManager script.
         detectCollision = GameObject.Find("DetectCollision").GetComponent<DetectCollision>(); // Getting the component DetectCollisions.
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
+
+    /*
     void Awake()
     {
         Time.timeScale = 1;
     }
+    */
+
     void Update()
     {
         if (transform.position.z > topBounds)
@@ -34,7 +40,8 @@ public class DestroyOutOfBounds : MonoBehaviour
                 scoreManager.DecreaseScore(scoreManager.amount); // DecreaseScore is a funtion in the DetectCollision script.
                 Debug.Log("Game Over");
                 Destroy(gameObject);
-                Time.timeScale = 0;
+                gameManager.isGameOver = true;
+                //  Time.timeScale = 0;
             }
 
             Destroy(gameObject);
