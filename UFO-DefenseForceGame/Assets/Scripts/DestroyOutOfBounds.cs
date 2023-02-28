@@ -7,14 +7,14 @@ public class DestroyOutOfBounds : MonoBehaviour
     public float topBounds = 22.00f;
     public float lowerBounds = -20.00f;
 
-    public ScoreManager scoreManager; // Reference the score manager so that the score can be updated.
-                                      // public DetectCollision detectCollision;
+    //  public ScoreManager scoreManager; // Reference the score manager so that the score can be updated.
+    // public DetectCollision detectCollision;
     public GameManager gameManager;
 
     void Start()
     {
-        scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>(); // Getting the component ScoreManager script.
-                                                                                     //  detectCollision = GameObject.Find("DetectCollision").GetComponent<DetectCollision>(); // Getting the component DetectCollisions.
+        //   scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>(); // Getting the component ScoreManager script.
+        //  detectCollision = GameObject.Find("DetectCollision").GetComponent<DetectCollision>(); // Getting the component DetectCollisions.
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 

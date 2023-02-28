@@ -180,7 +180,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8572783000812364129}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -228,8 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topBounds: 22
   lowerBounds: -20
-  scoreManager: {fileID: 0}
-  detectCollision: {fileID: 0}
+  gameManager: {fileID: 0}
 --- !u!114 &-1885510526670269192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -242,3 +241,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc79bf43ed31f41f3818464b515d2224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreToGive: 1
