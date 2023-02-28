@@ -10,8 +10,13 @@ public class PlayerController : MonoBehaviour
     public Transform blaster;
     public GameObject laserBolt;
     public int numbOfPickup = 0;
+    public GameManager gameManager;
 
-    // Update is called once per frame
+    void Start()
+    {
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+    }
+
     void Update()
     {
         // Set horizontalInput to recieve values from keyboard:
@@ -28,8 +33,8 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
         }
-        // If space bar is pressed, fire laserBolt:
-        if (Input.GetKeyDown(KeyCode.Space))
+        // Two conditions must be met to fire laser bolt:
+        if (Input.GetKeyDown(KeyCode.Space) && gameManager.isGameOver == false)
         {
             // Create lasberBolt at the blaster location:
             Instantiate(laserBolt, blaster.transform.position, laserBolt.transform.rotation);
@@ -37,7 +42,6 @@ public class PlayerController : MonoBehaviour
     }
 
     // Delete any object with a trigger that hits the player:
-
     void OnTriggerEnter(Collider other)
     {
         // count number of pickup items collected:
