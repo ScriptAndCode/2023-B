@@ -20,9 +20,10 @@ public class DetectCollision : MonoBehaviour
         {
             Destroy(gameObject); // Destroys the UFO.
             Destroy(other.gameObject); // Destroys the laser bolt.
+            scoreManager.IncreaseScore(scoreToGive); //Increase score.
         }
         //Explosion();
-        scoreManager.IncreaseScore(scoreToGive); //Increase score.
+
     }
     /* VoidExplosion()
     {
