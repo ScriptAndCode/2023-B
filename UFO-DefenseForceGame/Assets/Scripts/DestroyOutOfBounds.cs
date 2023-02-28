@@ -8,13 +8,13 @@ public class DestroyOutOfBounds : MonoBehaviour
     public float lowerBounds = -20.00f;
 
     public ScoreManager scoreManager; // Reference the score manager so that the score can be updated.
-    public DetectCollision detectCollision;
+                                      // public DetectCollision detectCollision;
     public GameManager gameManager;
 
     void Start()
     {
         scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>(); // Getting the component ScoreManager script.
-        detectCollision = GameObject.Find("DetectCollision").GetComponent<DetectCollision>(); // Getting the component DetectCollisions.
+                                                                                     //  detectCollision = GameObject.Find("DetectCollision").GetComponent<DetectCollision>(); // Getting the component DetectCollisions.
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
@@ -37,7 +37,7 @@ public class DestroyOutOfBounds : MonoBehaviour
             //Everytime a ship sneeks past the lower bounds deduct points:
             if (gameObject.CompareTag("EnemyUFO"))
             {
-                scoreManager.DecreaseScore(scoreManager.amount); // DecreaseScore is a funtion in the DetectCollision script.
+                // scoreManager.DecreaseScore(scoreManager.amount); // DecreaseScore is a funtion in the DetectCollision script.
                 Debug.Log("Game Over");
                 Destroy(gameObject);
                 gameManager.isGameOver = true;
