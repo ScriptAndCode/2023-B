@@ -7,7 +7,7 @@ public class DetectCollision : MonoBehaviour
 {
     private ScoreManager scoreManager;
     public int scoreToGive = 1;
-    //public ParticleSystem explosionParticle;
+    public ParticleSystem explosionParticle; // In the Unity inspector this makes a box to put the Explosion PreFab in.
 
     void Start()
     {
@@ -21,13 +21,13 @@ public class DetectCollision : MonoBehaviour
             Destroy(gameObject); // Destroys the UFO.
             Destroy(other.gameObject); // Destroys the laser bolt.
             scoreManager.IncreaseScore(scoreToGive); //Increase score.
+            Explosion();
         }
         //Explosion();
 
     }
-    /* VoidExplosion()
+    void Explosion()
     {
         Instantiate(explosionParticle, transform.position, transform.rotation);
     }
-    */
 }
