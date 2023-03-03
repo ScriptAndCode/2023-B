@@ -11,9 +11,15 @@ public class PlayerController : MonoBehaviour
     public GameObject laserBolt;
     public int numbOfPickup = 0;
     public GameManager gameManager;
+    // Audio Variables
+    private AudioSource blasterAudio; // Where the audio is located?
+    public AudioClip laserBlast; // The audio itself?
 
     void Start()
     {
+
+        blasterAudio = GetComponent<AudioSource>(); // since on same gameObject, just the component needs to be found, not the game object.
+
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
@@ -36,6 +42,7 @@ public class PlayerController : MonoBehaviour
         // Two conditions must be met to fire laser bolt:
         if (Input.GetKeyDown(KeyCode.Space) && gameManager.isGameOver == false)
         {
+            blasterAudio.PlayOneShot(laserBlast, 1.0F); //Play blasterAudio sound clip.
             // Create lasberBolt at the blaster location:
             Instantiate(laserBolt, blaster.transform.position, laserBolt.transform.rotation);
         }
