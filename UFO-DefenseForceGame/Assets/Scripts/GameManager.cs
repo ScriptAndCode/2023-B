@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -32,6 +33,13 @@ public class GameManager : MonoBehaviour
     public void EndGame()
     {
         gameOverText.gameObject.SetActive(true);
-        Time.timeScale = 0; // Time will freeze.
+        Time.timeScale = 0;
+        StartCoroutine(ReturnToMenu());
+    }
+
+    IEnumerator ReturnToMenu()
+    {
+        yield return new WaitForSecondsRealtime(3);
+        SceneManager.LoadScene(0);
     }
 }
