@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
     {
         gameOverText.gameObject.SetActive(true);
         Time.timeScale = 0;
-        StartCoroutine(ReturnToMenu());
+        StartCoroutine(ReturnToMenu()); // Source: https://docs.unity3d.com/ScriptReference/WaitForSecondsRealtime.html
     }
 
     IEnumerator ReturnToMenu()
