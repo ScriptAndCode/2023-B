@@ -7,8 +7,13 @@ public class ScoreManager : MonoBehaviour
 {
     public int score = 0; // Store the score value.
     public int amount = 1;
+    public int shield = 100; // Store the shield value.
+    public int shieldIncrease = 1;
+    public int shieldDecrease = -5;
 
     public TextMeshProUGUI scoreText; //Reference the text UI element to change.
+    public TextMeshProUGUI shieldText;
+
 
     public void IncreaseScore(int amount)
     {
@@ -26,4 +31,23 @@ public class ScoreManager : MonoBehaviour
     {
         scoreText.text = "Score: " + score;
     }
+
+
+    public void IncreaseShield(int shieldIncrease)
+    {
+        shield += shieldIncrease;
+        UpdateShieldText();
+    }
+
+    public void DecreaseShield(int shieldDecrease)
+    {
+        shield -= shieldDecrease;
+        UpdateShieldText();
+    }
+
+    public void UpdateShieldText()
+    {
+        shieldText.text = "Shield: " + shield;
+    }
+
 }

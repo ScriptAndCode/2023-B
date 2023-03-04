@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public GameObject laserBolt;
     public int numbOfPickup = 0;
     public GameManager gameManager;
+    public ScoreManager scoreManager;
     // Audio Variables
     private AudioSource blasterAudio; // Where the audio is located?
     public AudioClip laserBlast; // The audio itself?
@@ -21,7 +22,9 @@ public class PlayerController : MonoBehaviour
         blasterAudio = GetComponent<AudioSource>(); // since on same gameObject, just the component needs to be found, not the game object.
 
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
+        scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
     }
+
 
     void Update()
     {
@@ -56,7 +59,14 @@ public class PlayerController : MonoBehaviour
         {
             numbOfPickup += 1;
             Debug.Log("Number of collectables: " + numbOfPickup);
+            scoreManager.IncreaseShield(1);
+        }
+
+        if (other.gameObject.CompareTag("EnemyUFO"))
+        {
+            scoreManager.DecreaseShield(5);
         }
         Destroy(other.gameObject);
+
     }
 }
