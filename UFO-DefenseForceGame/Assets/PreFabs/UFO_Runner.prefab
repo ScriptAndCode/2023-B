@@ -243,3 +243,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreToGive: 50
   explosionParticle: {fileID: 3034157663630382951, guid: 13195b4e928094b889496a83b24a8ffb, type: 3}
+  explosionClip: {fileID: 8300000, guid: 276172f84fed641d0bfe8ed5e0b80bd9, type: 3}

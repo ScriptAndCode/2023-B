@@ -9,9 +9,13 @@ public class DetectCollision : MonoBehaviour
     public int scoreToGive = 1;
     public ParticleSystem explosionParticle; // In the Unity inspector this makes a box to put the Explosion PreFab in.
 
+    private AudioSource audioSourceExplosion;
+    public AudioClip explosionClip;
+
     void Start()
     {
         scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>(); // Referencing scoreManger script?
+        audioSourceExplosion = GameObject.Find("AudioSource-Explosion").GetComponent<AudioSource>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -22,9 +26,11 @@ public class DetectCollision : MonoBehaviour
             Destroy(other.gameObject); // Destroys the laser bolt.
             scoreManager.IncreaseScore(scoreToGive); //Increase score.
             Explosion();
+            audioSourceExplosion.PlayOneShot(explosionClip, 1.0F);
         }
-        //Explosion();
-
+        // If UFO collides with anything besides laser (only other thing is the collectable), then UFO is destroyed.
+        Explosion();
+        Destroy(gameObject);
     }
     void Explosion()
     {

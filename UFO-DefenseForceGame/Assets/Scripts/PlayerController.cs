@@ -8,24 +8,22 @@ public class PlayerController : MonoBehaviour
     public float speed = 50.00f;
     public float xRange = 25.00f;
     public Transform blaster;
+    //Referencing scripts
+    private GameManager gameManager;
+    private ScoreManager scoreManager;
     public GameObject laserBolt;
     public int numbOfPickup = 0;
-    public GameManager gameManager;
-    public ScoreManager scoreManager;
-    // Audio Variables
-    private AudioSource blasterAudio; // Where the audio is located?
-    public AudioClip laserBlast; // The audio itself?
-
+    public AudioClip blasterClip; // The audio itself?
+    private AudioSource audioSource;
+    private AudioSource audioSourceExplosion;
+    public AudioClip explosionClip;
     void Start()
     {
-
-        blasterAudio = GetComponent<AudioSource>(); // since on same gameObject, just the component needs to be found, not the game object.
-
+        audioSource = GetComponent<AudioSource>(); // since on same gameObject, just the component needs to be found, not the game object.
+        audioSourceExplosion = GameObject.Find("AudioSource-Explosion").GetComponent<AudioSource>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
     }
-
-
     void Update()
     {
         // Set horizontalInput to recieve values from keyboard:
@@ -45,25 +43,21 @@ public class PlayerController : MonoBehaviour
         // Two conditions must be met to fire laser bolt:
         if (Input.GetKeyDown(KeyCode.Space) && gameManager.isGameOver == false)
         {
-            blasterAudio.PlayOneShot(laserBlast, 1.0F); //Play blasterAudio sound clip.
-            // Create lasberBolt at the blaster location:
-            Instantiate(laserBolt, blaster.transform.position, laserBolt.transform.rotation);
+            audioSource.PlayOneShot(blasterClip, 1.0F); //Play blasterAudio sound clip.
+            Instantiate(laserBolt, blaster.transform.position, laserBolt.transform.rotation); // Creates lasberBolt at the blaster location.
         }
     }
-
-    // Delete any object with a trigger that hits the player:
-    void OnTriggerEnter(Collider other)
+    void OnTriggerEnter(Collider other) // Delete any object with a trigger that hits the player.
     {
-        // count number of pickup items collected:
-        if (other.gameObject.CompareTag("PickupItem"))
+        if (other.gameObject.CompareTag("PickupItem"))  // count number of pickup items collected.
         {
             numbOfPickup += 1;
             Debug.Log("Number of collectables: " + numbOfPickup);
             scoreManager.IncreaseShield(1);
         }
-
         if (other.gameObject.CompareTag("EnemyUFO"))
         {
+            audioSourceExplosion.PlayOneShot(explosionClip, 1.0F);
             scoreManager.DecreaseShield(5);
         }
         Destroy(other.gameObject);
