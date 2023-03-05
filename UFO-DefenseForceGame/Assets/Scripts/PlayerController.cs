@@ -46,7 +46,7 @@ public class PlayerController : MonoBehaviour
         // Two conditions must be met to fire laser bolt:
         if (Input.GetKeyDown(KeyCode.Space) && gameManager.isGameOver == false)
         {
-            audioSourceLaser.PlayOneShot(blasterClip, 1.0F); //Play blasterAudio sound clip.
+            audioSourceLaser.PlayOneShot(blasterClip, 1.0f); //Play blasterAudio sound clip.
             Instantiate(laserBolt, blaster.transform.position, laserBolt.transform.rotation); // Creates lasberBolt at the blaster location.
         }
     }
