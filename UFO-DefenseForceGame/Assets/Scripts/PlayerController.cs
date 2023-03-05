@@ -58,7 +58,7 @@ public class PlayerController : MonoBehaviour
         if (other.gameObject.CompareTag("EnemyUFO"))
         {
             audioSourceExplosion.PlayOneShot(explosionClip, 1.0F);
-            scoreManager.DecreaseShield(5);
+            scoreManager.DecreaseShield(10);
         }
         Destroy(other.gameObject);
 

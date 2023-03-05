@@ -532,12 +532,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   score: 0
-  amount: 1
-  shield: 100
-  shieldIncrease: 1
-  shieldDecrease: -5
   scoreText: {fileID: 252597171}
   shieldText: {fileID: 996408828}
+  gameManager: {fileID: 0}
 --- !u!1 &614177754
 GameObject:
   m_ObjectHideFlags: 0
