@@ -14,13 +14,16 @@ public class PlayerController : MonoBehaviour
     public GameObject laserBolt;
     public int numbOfPickup = 0;
     public AudioClip blasterClip; // The audio itself?
-    private AudioSource audioSource;
+    private AudioSource audioSourceLaser;
     private AudioSource audioSourceExplosion;
     public AudioClip explosionClip;
+    private AudioSource audioSourcePickup;
+    public AudioClip pickupClip;
     void Start()
     {
-        audioSource = GetComponent<AudioSource>(); // since on same gameObject, just the component needs to be found, not the game object.
+        audioSourceLaser = GetComponent<AudioSource>(); // since on same gameObject, just the component needs to be found, not the game object.
         audioSourceExplosion = GameObject.Find("AudioSource-Explosion").GetComponent<AudioSource>();
+        audioSourcePickup = GameObject.Find("AudioSource-Pickup").GetComponent<AudioSource>();
         gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
         scoreManager = GameObject.Find("ScoreManager").GetComponent<ScoreManager>();
     }
@@ -43,7 +46,7 @@ public class PlayerController : MonoBehaviour
         // Two conditions must be met to fire laser bolt:
         if (Input.GetKeyDown(KeyCode.Space) && gameManager.isGameOver == false)
         {
-            audioSource.PlayOneShot(blasterClip, 1.0F); //Play blasterAudio sound clip.
+            audioSourceLaser.PlayOneShot(blasterClip, 1.0F); //Play blasterAudio sound clip.
             Instantiate(laserBolt, blaster.transform.position, laserBolt.transform.rotation); // Creates lasberBolt at the blaster location.
         }
     }
@@ -54,6 +57,7 @@ public class PlayerController : MonoBehaviour
             numbOfPickup += 1;
             Debug.Log("Number of collectables: " + numbOfPickup);
             scoreManager.IncreaseShield(1);
+            audioSourcePickup.PlayOneShot(pickupClip, 1.0F);
         }
         if (other.gameObject.CompareTag("EnemyUFO"))
         {
